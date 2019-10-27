@@ -1,3 +1,7 @@
-.navbarBackground{
+.navbar{
     background-color : #006aa6;
+}
+
+.navlink{
+    color: #ffffff;
 }
