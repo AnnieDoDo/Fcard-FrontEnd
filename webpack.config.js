@@ -3,7 +3,7 @@ module.exports = {
     //這個webpack打包的對象，這裡面加上剛剛建立的index.js
     mode:"development",
     entry: {
-        index: './index1.jsx'
+        index: './index.jsx'
     },
     output: {
         //這裡是打包後的檔案名稱
@@ -47,5 +47,7 @@ module.exports = {
             }
         ],
     },
-
+    devServer: {
+        historyApiFallback: true
+    }
 };
