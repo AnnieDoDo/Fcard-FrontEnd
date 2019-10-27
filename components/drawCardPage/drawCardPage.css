@@ -1,0 +1,23 @@
+.background{
+    background-color: #00324e;
+    min-height: 1000px;
+}
+.imgStyle{
+    margin: auto;
+    display: block;
+    width: 204;
+    height: 384;
+}
+.containerStyle{
+    background-color: #fafafa;
+}
+h5{
+    text-align: center;
+}
+h6{
+    text-align: center;
+}
+.buttonStyle{
+    margin: auto;
+    display: block;
+}
