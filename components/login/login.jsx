@@ -48,7 +48,7 @@ class Login extends React.Component {
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" name="username" value={username} onChange={this.handleChange}/>
                                 {submitted && !username &&
-                                <div className="help-block">Username is required</div>
+                                <div className="help-block">Email is required</div>
                                 }
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword" className = "passwordShiftRight">
@@ -72,7 +72,7 @@ class Login extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
+    const { loggingIn } = state.LogReg;
     return { loggingIn };
 }
 
