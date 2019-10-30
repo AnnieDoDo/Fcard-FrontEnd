@@ -46,14 +46,14 @@ class Login extends React.Component {
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="formBasicEmail" className = "emailShiftRight">
                                 <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" name="username" value={username} onChange={this.handleChange}/>
+                                <Form.Control type="email" placeholder="Enter email" name="username" value={username||''} onChange={this.handleChange}/>
                                 {submitted && !username &&
                                 <div className="help-block">Email is required</div>
                                 }
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword" className = "passwordShiftRight">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" name="password" value={password} onChange={this.handleChange}/>
+                                <Form.Control type="password" placeholder="Password" name="password" value={password||''} onChange={this.handleChange}/>
                                 {submitted && !password &&
                                 <div className="help-block">Password is required</div>
                                 }
