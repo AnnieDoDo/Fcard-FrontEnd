@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../navbar/navbar.jsx';
 import Style from './login.css';
-import { Form, Button} from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { LogRegActions } from '../../actions/LogReg.actions.jsx';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -16,54 +16,58 @@ class Login extends React.Component {
             submitted: false
         };
 
-
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
     };
 
-    handleChange(e) {
+    handleChange(e){
         const { name, value } = e.target;
-        this.setState({ [name]: value });
+        this.setState({[name]: value});
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-
+    handleLogin(){
         this.setState({ submitted: true });
         const { username, password } = this.state;
         if (username && password) {
             this.props.login(username, password);
         }
     }
+
+    handleRegister(){
+        this.setState({ submitted: true });
+        const { username, password } = this.state;
+        if (username && password) {
+            this.props.register(username, password);
+        }
+    }
+
     render() {
-        const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
 
         return (
             <div className="background">
                 <NavBar />
                     <div className="backgroundwhite">
-                        <Form onSubmit={this.handleSubmit}>
-                            <Form.Group controlId="formBasicEmail" className = "emailShiftRight">
+                        <Form>
+                            <Form.Group controlId="formBasicEmail" className="emailShiftRight">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" name="username" value={username||''} onChange={this.handleChange}/>
                                 {submitted && !username &&
                                 <div className="help-block">Email is required</div>
                                 }
                             </Form.Group>
-                            <Form.Group controlId="formBasicPassword" className = "passwordShiftRight">
+                            <Form.Group controlId="formBasicPassword" className="passwordShiftRight">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" name="password" value={password||''} onChange={this.handleChange}/>
                                 {submitted && !password &&
                                 <div className="help-block">Password is required</div>
                                 }
                             </Form.Group>
-                            <Button variant="primary" type="submit" className = "loginShiftRight">
+                            <Button variant="primary" onClick={this.handleLogin} className="loginShiftRight">
                                 Login
-                                <NavLink to="http://127.0.0.1:3500/loginSubmit"  >
-                                </NavLink>
                             </Button>
-                            <Button variant="secondary" type="submit" className = "registerShiftRight" >
+                            <Button variant="secondary" onClick={this.handleRegister} className="registerShiftRight" >
                                 Register
                             </Button>
                         </Form>
@@ -73,15 +77,18 @@ class Login extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { loggingIn } = state.LogReg;
-    return { loggingIn };
-}
+/*function mapStateToProps(state) {
+    const { registering } = state.LogReg;
+    return {
+        //loggingIn: state.LogReg.loggingIn,
+    };
+}*/
 
 const actionCreators = {
     login: LogRegActions.login,
-    logout: LogRegActions.logout
+    logout: LogRegActions.logout,
+    register: LogRegActions.register
 };
 
-const connectedLoginPage = connect(mapStateToProps, actionCreators)(Login);
+const connectedLoginPage = connect(null, actionCreators)(Login);
 export { connectedLoginPage as Login };

@@ -3,6 +3,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 export const LoginRegService = {
     login,
     logout,
+    register,
 };
 
 function login(Email,Password){
@@ -42,4 +43,18 @@ function handleResponse(response){
             return 'logSubOK';
         }
     });
+}
+
+function register(Email, Password){
+    const requestEntity = {
+        method :'POST',
+        body: JSON.stringify({Email,Password}),
+        mode: 'cors'
+    }
+
+    return fetch('http://127.0.0.1:3500/registerSubmit',requestEntity)
+    .then(handleReg =>{
+        console.log(handleReg)
+    })
+
 }
