@@ -47,7 +47,15 @@ function register(email, password){
 
         dispatch(request({email}));
         LoginRegService.register(email,password)
-
+        .then(resString => {
+            if(resString=='regSubOK')
+            {
+                dispatch(success(resString));
+            }else if(resString=='registerFail')
+            {
+                dispatch(failure(resString));
+            }
+        })
 
     };
     function request(user) {return { type : LogRegConstants.REGISTER_REQUEST,user}}

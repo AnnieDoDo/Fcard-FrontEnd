@@ -54,7 +54,7 @@ function register(Email, Password){
 
     return fetch('http://127.0.0.1:3500/registerSubmit',requestEntity)
     .then(handleReg =>{
-        console.log(handleReg)
+        return handleReg.text()
     })
 
 }
