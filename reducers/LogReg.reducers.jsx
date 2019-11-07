@@ -5,7 +5,7 @@ const initialState = user ? { loggedIn: true, user } : {};
 
 export function LogReg(state = {},action){
     switch(action.type){
-        /*case LogRegConstants.REGISTER_REQUEST:
+        case LogRegConstants.REGISTER_REQUEST:
             return {
                 registering: true
             };
@@ -13,7 +13,7 @@ export function LogReg(state = {},action){
             return {};
             
         case LogRegConstants.REGISTER_FAILURE:
-            return {};*/
+            return {};
 
         case LogRegConstants.LOGIN_REQUEST:
             return {
