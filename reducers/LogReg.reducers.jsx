@@ -1,6 +1,6 @@
 import{LogRegConstants} from '../constants/LogReg.constants.jsx';
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = localStorage.getItem('user');
 const initialState = user ? { loggedIn: true, user } : {};
 
 export function LogReg(state = {},action){
@@ -13,8 +13,8 @@ export function LogReg(state = {},action){
             return {};
             
         case LogRegConstants.REGISTER_FAILURE:
-            return {};
-*/
+            return {};*/
+
         case LogRegConstants.LOGIN_REQUEST:
             return {
                 loggedIn: true,

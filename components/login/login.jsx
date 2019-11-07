@@ -4,7 +4,7 @@ import Style from './login.css';
 import { Form, Button} from "react-bootstrap";
 import { LogRegActions } from '../../actions/LogReg.actions.jsx';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props){
@@ -60,6 +60,8 @@ class Login extends React.Component {
                             </Form.Group>
                             <Button variant="primary" type="submit" className = "loginShiftRight">
                                 Login
+                                <NavLink to="http://127.0.0.1:3500/loginSubmit"  >
+                                </NavLink>
                             </Button>
                             <Button variant="secondary" type="submit" className = "registerShiftRight" >
                                 Register

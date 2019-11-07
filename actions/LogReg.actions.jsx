@@ -9,30 +9,30 @@ export const LogRegActions = {
 };
 
 function login(email, password){
-    return dispatch =>{
+    return dispatch => {
+
         dispatch(request({email}));
 
         LoginRegService.login(email,password)
-        .then(
-            user =>{
-                dispatch(success(user));
-                history.pushState('/');
-            },
-            error =>{
-                if(error=='Invalid password')
-                {
-                    dispatch(invalidPassword(error));
-                    dispatch(alertActions.error(error));
-                }else if(error=='Unauthorized!')
-                {
-                    dispatch(unauthorized(error));
-                    dispatch(alertActions.error(error));
-                }
+        .then(resString => {
+            //console.log(typeof(resString))
+            console.log(resString)
+            
+            if(resString=='Invalid password')
+            {
+                dispatch(invalidPassword(resString));
+                dispatch(alertActions.error(resString));
+            }else if(resString=='Unauthorized!')
+            {
+                dispatch(unauthorized(resString));
+                dispatch(alertActions.error(resString));
+            }else if(resString=='logSubOK'){
+                dispatch(success(resString));
+                console.log("Login success")
+                history.push('/mainpage');
             }
-        )
-
+        })
     };
-    
     function request(user) {return { type : LogRegConstants.LOGIN_REQUEST,user}}
     function success(user) {return { type : LogRegConstants.LOGIN_SUCCESS,user}}
     function invalidPassword(error) {return { type : LogRegConstants.LOGIN_INVALIDPASSWORD,error}}

@@ -7,15 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainPage from './components/mainpage/mainpage.jsx'
 import {Login} from './components/login/login.jsx';
 import DrawCardPage from './components/drawCardPage/drawCardPage.jsx';
+import { ConnectedRouter } from 'connected-react-router'
+import { history } from './helpers/history.jsx'
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <ConnectedRouter history={history}>
             <Switch>
                 <Route path="/login" component={Login} />
                 <Route path="/mainpage" component={MainPage} />
                 <Route path="/drawcardpage" component={DrawCardPage} />
             </Switch>
-        </BrowserRouter>
+        </ConnectedRouter>
     </Provider>
 , document.getElementById('root'));

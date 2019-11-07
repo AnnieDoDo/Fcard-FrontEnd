@@ -1,19 +1,28 @@
+import { config } from "@fortawesome/fontawesome-svg-core";
+
 export const LoginRegService = {
     login,
     logout,
 };
 
-function login(email,password){
+function login(Email,Password){
     const requestEntity = {
         method :'POST',
-        body: JSON.stringify({email,password})
+        body: JSON.stringify({Email,Password}),
+        mode: 'cors'
     }
     
-    return fetch('127.0.0.1:3500/loginSubmit',requestEntity)
+    return fetch('http://127.0.0.1:3500/loginSubmit',requestEntity)
     .then(handleResponse)
     .then(user =>{
-        localStorage.setItem('user',JSON.stringify(user));
-        return user
+        console.log(user)
+        if(user)
+        {
+            localStorage.setItem('user',user);
+        }else{
+            user = ''
+        }
+        return user;
     })
 }
 
@@ -23,12 +32,14 @@ function logout() {
 
 function handleResponse(response){
     return response.text()
-        .then(text => {
-            if( (response.statusText=='Invalid password') || (response.statusText=='Unauthorized!') ){
-                const error =response.statusText;
-                return Pormise.reject(error);
-            }else if(response.statusText=='logSubOK'){
-                return data;
-            }
-        });
+    .then(text => {
+        console.log(text)
+        if( (text=='Invalid password') || (text=='Unauthorized!') ){
+            const error = String(text);
+            return text;
+        }else if(text=='logSubOK'){
+            const islogin = String(text);
+            return 'logSubOK';
+        }
+    });
 }
