@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../navbar/navbar.jsx';
+import { NavBar } from '../navbar/navbar.jsx';
 import Style from './login.css';
 import { Form, Button } from "react-bootstrap";
 import { LogRegActions } from '../../actions/LogReg.actions.jsx';

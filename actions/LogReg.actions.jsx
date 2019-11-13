@@ -38,7 +38,7 @@ function login(email, password){
 }
 
 function logout() {
-    LogRegService.logout();
+    LoginRegService.logout();
     return { type: LogRegConstants.LOGOUT };
 }
 
