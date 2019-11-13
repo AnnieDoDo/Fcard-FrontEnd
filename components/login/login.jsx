@@ -78,9 +78,9 @@ class Login extends React.Component {
 }
 
 /*function mapStateToProps(state) {
-    const { registering } = state.LogReg;
+    const { loggingIn } = state.LogReg;
     return {
-        //loggingIn: state.LogReg.loggingIn,
+        loggingIn: state.LogReg.loggingIn,
     };
 }*/
 
