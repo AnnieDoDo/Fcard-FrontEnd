@@ -1,4 +1,3 @@
-import { config } from "@fortawesome/fontawesome-svg-core";
 
 export const LoginRegService = {
     login,
@@ -10,7 +9,8 @@ function login(Email,Password){
     const requestEntity = {
         method :'POST',
         body: JSON.stringify({Email,Password}),
-        mode: 'cors'
+        mode: 'cors',
+        credentials: 'include',
     }
     
     return fetch('http://127.0.0.1:3500/loginSubmit',requestEntity)
@@ -28,7 +28,21 @@ function login(Email,Password){
 }
 
 function logout() {
-    localStorage.removeItem('user');
+    const requestEntity = {
+        method :'GET',
+        mode: 'cors',
+        credentials: 'include',
+    }
+
+    return fetch('http://127.0.0.1:3500/logout',requestEntity)
+    .then(handleReg =>{
+        console.log(handleReg)
+        if(handleReg.text()=="logoutOK")
+        {
+            localStorage.removeItem('user');
+            return handleReg.text()
+        }
+    })
 }
 
 function handleResponse(response){

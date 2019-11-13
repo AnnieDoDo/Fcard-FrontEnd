@@ -19,5 +19,17 @@ h6{
 }
 .buttonStyle{
     margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: block;
+}
+.descriptionWordColor{
+    color:#006aa6;
+    display: inline;
+}
+.contentWordColor{
+    display: inline;
+    margin: auto;
+    position: absolute;
+    left: 300px;
 }

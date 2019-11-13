@@ -1,14 +1,15 @@
 import React from 'react'
-import NavBar from '../navbar/navbar.jsx';
+import { NavBar } from '../navbar/navbar.jsx';
 import Style from './mainpage.css'
-import {Form, Button} from "react-bootstrap"
-
+import { Form, Button } from "react-bootstrap"
 
 class MainPage extends React.Component {
     constructor(props){
         super(props);
     };
+
     render() {
+
         return (
             <div className="background">
                 <NavBar />
@@ -18,3 +19,5 @@ class MainPage extends React.Component {
 }
 
 export default MainPage;
+
+

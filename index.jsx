@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { store } from './helpers/store.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainPage from './components/mainpage/mainpage.jsx'
-import {Login} from './components/login/login.jsx';
-import DrawCardPage from './components/drawCardPage/drawCardPage.jsx';
+import { Login } from './components/login/login.jsx';
+import { DrawCardPage } from './components/drawCardPage/drawCardPage.jsx';
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from './helpers/history.jsx'
 
