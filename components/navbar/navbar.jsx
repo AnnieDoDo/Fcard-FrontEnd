@@ -14,7 +14,7 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = {
-            submitted: false
+            submitted: false,
         };
 
         this.handleDrawCard = this.handleDrawCard.bind(this);
@@ -33,23 +33,29 @@ class NavBar extends React.Component {
 
     render() {
         const { submitted } = this.state;
+        const { loggedIn } = this.props
         return (
             <Navbar variant="dark" className="navbar" >
                 <Navbar.Brand>Fcard</Navbar.Brand>
                 <Nav className="ml-auto">
-                    <FontAwesomeIcon icon={faCrow} onClick={this.handleDrawCard} className="iconstyle" />
-                    <FontAwesomeIcon icon={faSignOutAlt} onClick={this.handleLogout} className="iconstyle" />
+                    { loggedIn && <FontAwesomeIcon icon={faCrow} onClick={this.handleDrawCard} className="iconstyle" /> }
+                    { loggedIn && <FontAwesomeIcon icon={faSignOutAlt} onClick={this.handleLogout} className="iconstyle" /> }
+
                 </Nav>
             </Navbar>
         );
     }
 }
 
+function mapState(state) {
+    const { loggedIn } = state.LogReg;
+    return { loggedIn };
+}
 
 const actionCreators = {
     DrawCard: DrawCardActions.DrawCard,
     logout: LogRegActions.logout
 };
 
-const connectedNavBar = connect(null, actionCreators)(NavBar);
+const connectedNavBar = connect(mapState, actionCreators)(NavBar);
 export { connectedNavBar as NavBar };

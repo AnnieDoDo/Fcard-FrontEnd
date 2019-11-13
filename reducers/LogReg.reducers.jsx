@@ -17,7 +17,6 @@ export function LogReg(state = {},action){
 
         case LogRegConstants.LOGIN_REQUEST:
             return {
-                loggedIn: true,
                 user: action.user
             };
             
@@ -33,7 +32,7 @@ export function LogReg(state = {},action){
             return {};
 
         case LogRegConstants.LOGOUT:
-            return {};
+            return { loggedIn: false};
 
         default:
             return state
