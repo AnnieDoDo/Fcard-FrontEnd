@@ -3,7 +3,7 @@ import { NavBar } from '../navbar/navbar.jsx';
 import Style from './login.css';
 import { Form, Button, Container } from "react-bootstrap";
 import Alert from 'react-bootstrap/Alert'
-import { LogRegActions } from '../../actions/LogReg.actions.jsx';
+import { LogRegAction } from '../../actions/LogReg.actions.jsx';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
@@ -89,9 +89,9 @@ class Login extends React.Component {
 }*/
 
 const actionCreators = {
-    login: LogRegActions.login,
-    logout: LogRegActions.logout,
-    register: LogRegActions.register
+    login: LogRegAction.login,
+    logout: LogRegAction.logout,
+    register: LogRegAction.register
 };
 
 const connectedLoginPage = connect(null, actionCreators)(Login);

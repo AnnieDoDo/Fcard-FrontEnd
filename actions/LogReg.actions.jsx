@@ -2,7 +2,7 @@ import {LogRegConstants} from '../constants/LogReg.constants.jsx';
 import {LoginRegService} from '../service/LogReg.service.jsx';
 import {history} from '../helpers/history.jsx'
 
-export const LogRegActions = {
+export const LogRegAction = {
     login,
     logout,
     register,

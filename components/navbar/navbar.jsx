@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCrow, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import { DrawCardActions } from '../../actions/DrawCard.actions.jsx'
-import { LogRegActions } from '../../actions/LogReg.actions.jsx'
+import { LogRegAction } from '../../actions/LogReg.actions.jsx'
 import { connect } from 'react-redux';
 
 class NavBar extends React.Component {
@@ -60,8 +60,8 @@ function mapState(state) {
 
 const actionCreators = {
     DrawCard: DrawCardActions.DrawCard,
-    logout: LogRegActions.logout,
-    turnToLoginPage: LogRegActions.turnToLoginPage,
+    logout: LogRegAction.logout,
+    turnToLoginPage: LogRegAction.turnToLoginPage,
 };
 
 const connectedNavBar = connect(mapState, actionCreators)(NavBar);

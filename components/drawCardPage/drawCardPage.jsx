@@ -8,7 +8,7 @@ import Image from 'react-bootstrap/Image'
 import Pic from './dodo.jpg'
 import { connect } from 'react-redux';
 import { DrawCardActions } from '../../actions/DrawCard.actions.jsx'
-import { LogRegActions } from '../../actions/LogReg.actions.jsx'
+import { LogRegAction } from '../../actions/LogReg.actions.jsx'
 
 class DrawCardPage extends React.Component {
     constructor(props){
@@ -98,7 +98,7 @@ function mapState(state) {
 const actionCreators = {
     GetPersonalData: DrawCardActions.GetPersonalData,
     TurnToMainPage: DrawCardActions.TurnToMainPage,
-    turnToLoginPage: LogRegActions.turnToLoginPage,
+    turnToLoginPage: LogRegAction.turnToLoginPage,
 };
 
 const connectedDrawCardPage = connect(mapState, actionCreators)(DrawCardPage);

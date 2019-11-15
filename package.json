@@ -38,7 +38,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --devtool eval --progress --color",
-    "building": "webpack --mode production",
+    "building": "webpack --config webpack.config.js",
     "deploy": "gh-pages -d examples/dist",
     "publish-demo": "npm run building && npm run deploy"
   }
