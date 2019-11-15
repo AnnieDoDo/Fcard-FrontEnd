@@ -34,6 +34,12 @@ export function LogReg(state = {},action){
         case LogRegConstants.LOGOUT:
             return { loggedIn: false};
 
+        case LogRegConstants.LOGIN_TO_LOGIN_PAGE:
+            return {};
+        
+        case LogRegConstants.REGISTER_ACCOUNT_EXIST:
+            return {};
+
         default:
             return state
     }

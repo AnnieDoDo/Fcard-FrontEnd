@@ -8,18 +8,30 @@ import Image from 'react-bootstrap/Image'
 import Pic from './dodo.jpg'
 import { connect } from 'react-redux';
 import { DrawCardActions } from '../../actions/DrawCard.actions.jsx'
-
+import { LogRegActions } from '../../actions/LogReg.actions.jsx'
 
 class DrawCardPage extends React.Component {
     constructor(props){
         super(props);
+
+        this.handleLogin = this.handleLogin.bind(this);
     };
 
-    componentDidMount() {
-        this.props.GetPersonalData();
+    componentDidUpdate() {
+        if(this.props.loggedIn){
+            this.props.GetPersonalData();
+        }else{
+            this.props.TurnToMainPage();
+        }
+
     }
+
+    handleLogin(){
+        this.props.turnToLoginPage();
+    }
+
     render() {
-        const { pdata } = this.props;
+        const { pdata, loggedIn } = this.props;
         return (
             <div className="background">
                 <NavBar />
@@ -82,11 +94,14 @@ class DrawCardPage extends React.Component {
 
 function mapState(state) {
     const { pdata } = state.DrawCard;
-    return { pdata };
+    const { loggedIn } = state.LogReg;
+    return { pdata, loggedIn };
 }
 
 const actionCreators = {
     GetPersonalData: DrawCardActions.GetPersonalData,
+    TurnToMainPage: DrawCardActions.TurnToMainPage,
+    turnToLoginPage: LogRegActions.turnToLoginPage,
 };
 
 const connectedDrawCardPage = connect(mapState, actionCreators)(DrawCardPage);

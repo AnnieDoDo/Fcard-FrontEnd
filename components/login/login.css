@@ -6,10 +6,12 @@
     display: inline-block;
     padding-left: 1200px;
     padding-top: 200px;
+    color: #ffffff;
 }
 .passwordShiftRight{
     display: inline-block;
     padding-left: 1200px;
+    color: #ffffff;
 }
 .loginShiftRight{
     display: inline-block;
@@ -24,7 +26,7 @@
     background-color: #00324e;
     min-height: 1000px;
 }
-.backgroundwhite{
-
+.wordstyle{
+    color: #bd494a;
 
 }
