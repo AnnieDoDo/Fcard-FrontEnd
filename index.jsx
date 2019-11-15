@@ -14,9 +14,9 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <Switch>
-                <Route path="/login" component={Login} />
-                <Route path="/mainpage" component={MainPage} />
-                <Route path="/drawcardpage" component={DrawCardPage} />
+                <Route path={process.env.PUBLIC_URL +"/login"} component={Login} />
+                <Route path={process.env.PUBLIC_URL +"/mainpage"} component={MainPage} />
+                <Route path={process.env.PUBLIC_URL +"/drawcardpage"} component={DrawCardPage} />
             </Switch>
         </ConnectedRouter>
     </Provider>
