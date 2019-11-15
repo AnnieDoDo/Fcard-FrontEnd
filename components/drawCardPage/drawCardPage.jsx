@@ -14,10 +14,9 @@ class DrawCardPage extends React.Component {
     constructor(props){
         super(props);
 
-        this.handleLogin = this.handleLogin.bind(this);
     };
 
-    componentDidUpdate() {
+    componentDidMount() {
         if(this.props.loggedIn){
             this.props.GetPersonalData();
         }else{
@@ -26,9 +25,7 @@ class DrawCardPage extends React.Component {
 
     }
 
-    handleLogin(){
-        this.props.turnToLoginPage();
-    }
+
 
     render() {
         const { pdata, loggedIn } = this.props;
