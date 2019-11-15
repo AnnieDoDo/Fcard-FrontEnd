@@ -6,6 +6,7 @@ export const LogRegActions = {
     login,
     logout,
     register,
+    turnToLoginPage,
 };
 
 function login(email, password){
@@ -54,6 +55,8 @@ function register(email, password){
             }else if(resString=='registerFail')
             {
                 dispatch(failure(resString));
+            }if(resString=='You have registered before.'){
+                dispatch(accountExist(resString))
             }
         })
 
@@ -61,4 +64,14 @@ function register(email, password){
     function request(user) {return { type : LogRegConstants.REGISTER_REQUEST,user}}
     function success(user) {return { type : LogRegConstants.REGISTER_SUCCESS,user}}
     function failure(user) {return { type : LogRegConstants.REGISTER_FAILURE,user}}
+    function accountExist(accountexist){ return { type : LogRegConstants.REGISTER_ACCOUNT_EXIST,accountExist}}
+}
+
+function turnToLoginPage(){
+    return dispatch => {
+        dispatch(request());
+        history.push('/login');
+    };
+
+    function request() {return { type : LogRegConstants.LOGIN_TO_LOGIN_PAGE}}
 }
