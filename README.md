@@ -12,4 +12,6 @@
     $ npm install
     
     $ npm run build
+    
+* The built files are in the docs folder
 
